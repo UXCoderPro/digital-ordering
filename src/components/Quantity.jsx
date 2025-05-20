@@ -2,10 +2,10 @@ import React from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const Quantity = ({ quantity, onChange }) => {
-  const safeQuantity = Number.isFinite(quantity) && quantity > 0 ? quantity : 1;
+  const safeQuantity = Number.isFinite(quantity) && quantity > 0 ? quantity : 0;
 
   const decrease = () => {
-    if (safeQuantity > 1) onChange(safeQuantity - 1);
+    if (safeQuantity > 0) onChange(safeQuantity - 1);
   };
 
   const increase = () => {
@@ -17,7 +17,7 @@ const Quantity = ({ quantity, onChange }) => {
       <button
         className="h-full w-10 flex justify-center items-center border-r border-border bg-white p-1 cursor-pointer disabled:opacity-40"
         onClick={decrease}
-        disabled={safeQuantity === 1}
+        disabled={safeQuantity === 0}
       >
         <AiOutlineMinus className="text-textDark" />
       </button>

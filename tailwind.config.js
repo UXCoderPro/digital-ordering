@@ -31,6 +31,9 @@ export default {
         sfText: ["SF Pro Text", "-apple-system", "sans-serif"],
         rare: ['"Rare Script"', "cursive"],
       },
+      dropShadow: {
+        reverse: "0 -4px 10px rgba(0,0,0,0.10)",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide"), require("@tailwindcss/forms")],
