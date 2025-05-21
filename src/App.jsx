@@ -16,6 +16,7 @@ import Profile from "./pages/myAccount/Profile";
 import Credits from "./pages/myAccount/Credits";
 import Points from "./pages/myAccount/Points";
 import Coupon from "./pages/myAccount/Coupon";
+import MyQr from "./pages/myAccount/MyQr";
 
 // product Related Pages
 import ProductDetail from "./pages/ProductDetail";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/account/Credits" element={<Credits />} />
           <Route path="/account/Points" element={<Points />} />
           <Route path="/account/Coupon" element={<Coupon />} />
+          <Route path="/account/MyQr" element={<MyQr />} />
           <Route path="/ProductInfo/:id" element={<ProductDetail />} />
         </Routes>
       </AnimatePresence>

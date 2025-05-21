@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { pageVariants, pageTransition } from "../../utils/PageTransition";
 
-const Credits = () => {
+const Coupon = () => {
   return (
     <motion.div
       variants={pageVariants}
@@ -11,9 +11,9 @@ const Credits = () => {
       exit="exit"
       transition={pageTransition}
     >
-      Creditsbfgfgfrgergr
+      My Qr
     </motion.div>
   );
 };
 
-export default Credits;
+export default Coupon;

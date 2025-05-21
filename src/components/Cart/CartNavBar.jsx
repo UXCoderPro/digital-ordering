@@ -19,14 +19,14 @@ const CartNavBar = () => {
         </p>
       </div>
 
-      {/* Checkout Button */}
-      <button className="w-full flex justify-between items-center py-3 rounded-xl bg-primary px-6 text-white font-semibold font-sfDisplay text-base">
-        Check Out <span>$45.00</span>
-      </button>
-
       {/* Add Coupon Button */}
       <button className="w-full flex justify-center items-center py-3 rounded-xl bg-white px-6 text-secondary border border-border font-semibold font-sfDisplay text-base">
         Add Coupon
+      </button>
+
+      {/* Checkout Button */}
+      <button className="w-full flex justify-between items-center py-3 rounded-xl bg-primary px-6 text-white font-semibold font-sfDisplay text-base">
+        Check Out <span>$45.00</span>
       </button>
     </div>
   );

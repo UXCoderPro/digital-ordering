@@ -20,7 +20,7 @@ export default {
       },
       backgroundImage: {
         "promo-bg": "url('/src/assets/bgpromo.png')",
-        "account-bg": "url('/src/assets/bgAccount.svg')",
+        "account-bg": "url('/src/assets/Account/bgAccount.svg')",
         "banner-gradient":
           "linear-gradient(180deg, rgba(16,16,16,0.00) 0%, #101010 100%)",
         "custom-red-gradient":
