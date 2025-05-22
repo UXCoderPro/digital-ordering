@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -17,6 +18,7 @@ import Credits from "./pages/myAccount/Credits";
 import Points from "./pages/myAccount/Points";
 import Coupon from "./pages/myAccount/Coupon";
 import MyQr from "./pages/myAccount/MyQr";
+import SplashScreen from "./pages/SplashScreen";
 
 // product Related Pages
 import ProductDetail from "./pages/ProductDetail";
@@ -28,11 +30,19 @@ import BottomPromo from "./components/bottomPromo";
 
 function App() {
   const location = useLocation();
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 5000); // 6 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
   // Only show navbar on these routes (lowercase all for safety)
   const navbarVisibleRoutes = ["/", "/outlet", "/account", "/more"];
   const currentPath = location.pathname.toLowerCase();
   const showNavbar = navbarVisibleRoutes.includes(currentPath);
+
+  if (showSplash) return <SplashScreen />;
 
   return (
     <div className="w-full min-h-screen overflow-scroll scrollbar-hide">

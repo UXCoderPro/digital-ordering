@@ -1,0 +1,26 @@
+<svg width="412" height="869" viewBox="0 0 412 869" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-130.04" y="-55.04" width="751.569" height="1025.88"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(27.52px);clip-path:url(#bgblur_0_441_118898_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_ii_441_118898)" data-figma-bg-blur-radius="55.04">
+<path d="M213.109 555.223C278.653 761.965 476.006 816.731 566.489 818.272C539.752 849.655 545.552 891.426 551.794 908.389C345.894 962.168 177.904 710.171 119.647 577.45C156.304 591.832 197.229 568.625 213.109 555.223Z" fill="#F43F46" fill-opacity="0.2"/>
+<path d="M483 209.622C176.1 -157.14 -16.875 39.4672 -75 183.616C-50.6284 182.26 -31.7757 186.087 -17.4962 192.264C-1.03062 199.386 34.5921 195.773 43.7519 180.348C157.128 -10.5792 332.649 210.809 411.024 356C402.12 277.536 455.298 225.721 483 209.622Z" fill="#F43F46" fill-opacity="0.7"/>
+</g>
+<defs>
+<filter id="filter0_ii_441_118898" x="-130.04" y="-55.04" width="751.569" height="1025.88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-22.9333" dy="22.9333"/>
+<feGaussianBlur stdDeviation="11.4667"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_441_118898"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="22.9333" dy="-22.9333"/>
+<feGaussianBlur stdDeviation="11.4667"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.649038 0 0 0 0 0.049926 0 0 0 0 0.0730961 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow_441_118898" result="effect2_innerShadow_441_118898"/>
+</filter>
+<clipPath id="bgblur_0_441_118898_clip_path" transform="translate(130.04 55.04)"><path d="M213.109 555.223C278.653 761.965 476.006 816.731 566.489 818.272C539.752 849.655 545.552 891.426 551.794 908.389C345.894 962.168 177.904 710.171 119.647 577.45C156.304 591.832 197.229 568.625 213.109 555.223Z"/>
+<path d="M483 209.622C176.1 -157.14 -16.875 39.4672 -75 183.616C-50.6284 182.26 -31.7757 186.087 -17.4962 192.264C-1.03062 199.386 34.5921 195.773 43.7519 180.348C157.128 -10.5792 332.649 210.809 411.024 356C402.12 277.536 455.298 225.721 483 209.622Z"/>
+</clipPath></defs>
+</svg>
