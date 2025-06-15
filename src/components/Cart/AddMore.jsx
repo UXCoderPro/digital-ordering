@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import productInfo from "../../data/ProductData";
 import Quantity from "../Quantity";
+import { useCart } from "../../context/CartContext";
 
 const backgroundColor = {
   normal: {
@@ -35,21 +36,18 @@ const AddMore = () => {
     return shuffled.slice(0, 5);
   }, []);
 
-  // Track active state and quantity for each product by id
-  const [activeItems, setActiveItems] = useState({});
+  const { cart, addToCart } = useCart();
 
-  const handleAddClick = (id) => {
-    setActiveItems((prev) => ({
-      ...prev,
-      [id]: { quantity: 1 },
-    }));
+  const getCartItem = (id) => {
+    return cart.find((item) => item.id === id);
   };
 
-  const handleQuantityChange = (id, newQuantity) => {
-    setActiveItems((prev) => ({
-      ...prev,
-      [id]: { quantity: newQuantity },
-    }));
+  const handleAddClick = (item) => {
+    addToCart({ ...item, quantity: 1 });
+  };
+
+  const handleQuantityChange = (item, newQty) => {
+    addToCart({ ...item, quantity: newQty });
   };
 
   return (
@@ -61,15 +59,15 @@ const AddMore = () => {
         {randomProducts.map((item) => {
           const type = item.type || "normal";
           const styles = backgroundColor[type];
-          const isActive = !!activeItems[item.id];
-          const quantity = activeItems[item.id]?.quantity || 1;
+          const cartItem = getCartItem(item.id);
+          const quantity = cartItem?.quantity || 0;
 
           return (
             <div
               key={item.id}
               className={`flex min-w-72 h-28 items-center gap-3 border border-solid rounded-lg overflow-hidden transition-all duration-200
                 ${styles.container}
-                ${isActive ? "border-primary" : "border-border"}
+                ${quantity > 0 ? "border-primary" : "border-border"}
               `}
             >
               <img
@@ -90,14 +88,14 @@ const AddMore = () => {
                   {item.cost}
                 </p>
 
-                {isActive ? (
+                {quantity > 0 ? (
                   <Quantity
                     quantity={quantity}
-                    onChange={(val) => handleQuantityChange(item.id, val)}
+                    onChange={(val) => handleQuantityChange(item, val)}
                   />
                 ) : (
                   <button
-                    onClick={() => handleAddClick(item.id)}
+                    onClick={() => handleAddClick(item)}
                     className={`px-4 py-2 text-xs font-sfText w-full rounded-md flex justify-center items-center gap-2 ${styles.btn} ${styles.btnTxt}`}
                   >
                     Add

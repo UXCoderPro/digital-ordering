@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 
 // Pages
 
@@ -45,7 +46,17 @@ function App() {
   if (showSplash) return <SplashScreen />;
 
   return (
-    <div className="w-full min-h-screen overflow-scroll scrollbar-hide">
+    <div className="max-w-[530px]  min-h-screen overflow-scroll scrollbar-hide">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            marginTop: "4rem", // pushes it down a little
+          },
+        }}
+      />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<MenuPage />} />

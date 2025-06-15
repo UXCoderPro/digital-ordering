@@ -3,11 +3,19 @@ import Quantity from "../Quantity";
 import CheckBox from "../CheckBox";
 import { IoMdArrowDropdown } from "react-icons/io";
 import food from "../../assets/product/Beef/Beef.jpg";
+import { useCart } from "../../context/CartContext";
+import { MdDelete } from "react-icons/md";
+import Icon from "../IconComponent";
 
-const UpdateCart = () => {
+const UpdateCart = ({ item, onQuantityChange }) => {
   const [checked, setChecked] = useState(false);
   const [click, setClick] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+
+  const { updateQuantity, removeFromCart } = useCart();
+
+  const handleQuantityChange = (newQty) => {
+    updateQuantity(item.id, newQty);
+  };
 
   return (
     <div className="w-full py-4 border-b border-border flex flex-col gap-4">
@@ -15,16 +23,24 @@ const UpdateCart = () => {
       <div className="flex justify-between items-center w-full">
         <div className="flex gap-3 items-center">
           <img
-            src={food}
+            src={item.img}
             alt="Beef Combo Pack"
             className="w-20 h-20 rounded-md object-cover"
           />
           <h1 className="text-base font-sfDisplay font-semibold text-textDark">
-            Beef Combo Pack
+            {item.name}
           </h1>
         </div>
         <div>
-          <Quantity quantity={quantity} setQuantity={setQuantity} />
+          <Quantity quantity={item.quantity} onChange={handleQuantityChange} />
+          <Icon
+            icon={MdDelete}
+            iconColor="text-white"
+            bgColor="bg-secondary"
+            borderColor="border-secondary"
+            className="cursor-pointer"
+            onClick={() => removeFromCart(item.id)}
+          />
         </div>
       </div>
 
@@ -56,7 +72,7 @@ const UpdateCart = () => {
 
         <div className="flex flex-col gap-2 items-end">
           <h1 className="text-base font-sfDisplay font-bold text-textDark">
-            $6.90
+            {item.cost}
           </h1>
           <p className="text-sm text-primary font-sfText flex items-center gap-1 cursor-pointer">
             Expand <IoMdArrowDropdown />

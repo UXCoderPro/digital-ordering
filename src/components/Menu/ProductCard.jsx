@@ -1,8 +1,9 @@
 // components/Menu/ProductCard.jsx
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import Quantity from "../Quantity";
+import { useCart } from "../../context/CartContext";
 
 const backgroundColor = {
   normal: {
@@ -25,21 +26,31 @@ const backgroundColor = {
   },
 };
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, highlight }) => {
   const { id, name, cost, image, type = "normal" } = item;
   const styles = backgroundColor[type];
+  const { getProductQuantity, updateCartQuantity } = useCart();
 
-  const [quantity, setQuantity] = useState(1);
+  const quantity = getProductQuantity(id);
+  const showQuantity = quantity > 0;
+
+  const handleQuantityChange = (newQty) => {
+    updateCartQuantity(id, newQty);
+  };
 
   return (
     <div
-      className={`flex flex-col h-80 justify-between  border rounded-2xl overflow-hidden cursor-pointer border-border ${styles.container}`}
+      className={`flex flex-col h-80 justify-between  border rounded-2xl overflow-hidden cursor-pointer ${
+        highlight ? "border-primary border-2" : "border-border "
+      }   ${styles.container}`}
     >
       <div
         className="w-full h-52 bg-center bg-cover flex px-3 py-5 justify-center items-end"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <Quantity quantity={quantity} onChange={setQuantity} />
+        {showQuantity && (
+          <Quantity quantity={quantity} onChange={handleQuantityChange} />
+        )}
       </div>
       <Link to={`/ProductInfo/${id}`}>
         <div className="w-full flex flex-col items-center  gap-3">

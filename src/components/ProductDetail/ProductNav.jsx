@@ -7,6 +7,7 @@ const ProductNav = ({
   basePrice,
   selectedModifiers,
   selectedCombos,
+  onAddToCart, // ✅ receive this prop
 }) => {
   // Convert base price string to number
   const base =
@@ -36,6 +37,7 @@ const ProductNav = ({
           <Quantity quantity={quantity} onChange={setQuantity} />
         </div>
         <button
+          onClick={onAddToCart}
           className={`px-8 py-2 rounded-md flex justify-center items-center gap-2 font-semibold transition duration-200 ${
             quantity > 0
               ? "bg-primary text-white hover:bg-primary/90"

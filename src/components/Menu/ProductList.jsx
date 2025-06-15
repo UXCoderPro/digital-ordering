@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import productInfo from "../../data/ProductData";
 import ProductCategory from "./ProductCategory";
 
-const Product = ({ scrollToCategory }) => {
+const Product = ({ scrollToCategory, highlightProductId }) => {
   const sectionRefs = useRef({});
 
   const groupedProducts = useMemo(() => {
@@ -38,6 +38,7 @@ const Product = ({ scrollToCategory }) => {
           category={category}
           items={items}
           ref={setSectionRef(category)}
+          highlightProductId={highlightProductId}
         />
       ))}
     </div>
